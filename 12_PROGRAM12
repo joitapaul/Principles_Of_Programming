@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+class ATM {
+private:
+    string cardPIN;
+    double balance;
+    vector<string> miniStatement;
+
+public:
+    ATM(string pin, double initialBalance) {
+        cardPIN = pin;
+        balance = initialBalance;
+    }
+
+    // Function to retrieve card PIN (public)
+    string getCardPIN() {
+        return cardPIN;
+    }
+
+    // Function to check balance
+    void checkBalance() {
+        cout << "Current balance: $" << balance << endl;
+        miniStatement.push_back("Checked balance: $" + to_string(balance));
+    }
+
+    // Function to withdraw money
+    void withdraw(double amount) {
+        if (amount > balance) {
+            cout << "Insufficient balance!" << endl;
+            miniStatement.push_back("Failed withdrawal attempt: $" + to_string(amount));
+        } else {
+            balance -= amount;
+            cout << "Withdrawal of $" << amount << " successful!" << endl;
+            miniStatement.push_back("Withdrawal: $" + to_string(amount));
+        }
+    }
+
+    // Function to transfer money
+    void transfer(double amount, ATM &receiver) {
+        if (amount > balance) {
+            cout << "Insufficient balance!" << endl;
+            miniStatement.push_back("Failed transfer attempt: $" + to_string(amount));
+        } else {
+            balance -= amount;
+            receiver.balance += amount;
+            cout << "Transfer of $" << amount << " to receiver successful!" << endl;
+            miniStatement.push_back("Transferred: $" + to_string(amount));
+        }
+    }
+
+    // Function to show mini statement (last few transactions)
+    void showMiniStatement() {
+        cout << "Mini Statement:" << endl;
+        for (string transaction : miniStatement) {
+            cout << transaction << endl;
+        }
+    }
+};
+
+int main() {
+    // Creating two ATM accounts for simulation
+    ATM user1("1234", 1000.0);
+    ATM user2("5678", 500.0);
+
+    // Simulating user1's actions
+    cout << "User 1's PIN: " << user1.getCardPIN() << endl;
+    user1.checkBalance();
+    user1.withdraw(300.0);
+    user1.transfer(200.0, user2);
+    user1.showMiniStatement();
+
+    return 0;
+}
