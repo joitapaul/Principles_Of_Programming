@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>  // For using M_PI (value of pi)
+
+using namespace std;
+
+class ShapeArea {
+public:
+    // Function to calculate the area of a triangle (using base and height)
+    double area(double base, double height) {
+        return 0.5 * base * height;
+    }
+
+    // Function to calculate the area of a rectangle (using length and breadth)
+    double area(double length, double breadth) {
+        return length * breadth;
+    }
+
+    // Function to calculate the area of a circle (using radius)
+    double area(double radius) {
+        return M_PI * radius * radius;
+    }
+
+    // Function to calculate the area of a square (using side length)
+    double area(int side) {
+        return side * side;
+    }
+};
+
+int main() {
+    ShapeArea shape;
+
+    // Area of triangle with base 10 and height 5
+    cout << "Area of triangle: " << shape.area(10.0, 5.0) << " square units" << endl;
+
+    // Area of rectangle with length 10 and breadth 5
+    cout << "Area of rectangle: " << shape.area(10.0, 5.0) << " square units" << endl;
+
+    // Area of circle with radius 7
+    cout << "Area of circle: " << shape.area(7.0) << " square units" << endl;
+
+    // Area of square with side length 4
+    cout << "Area of square: " << shape.area(4) << " square units" << endl;
+
+    return 0;
+}
