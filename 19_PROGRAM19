@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+    string model;
+    float price;
+    int year;
+
+public:
+    // 1. Default constructor
+    Car() {
+        model = "Generic Model";
+        price = 0.0;
+        year = 2000;
+        cout << "Default constructor called. Model: " << model << ", Price: " << price << ", Year: " << year << endl;
+    }
+
+    // 2. Parameterized constructor
+    Car(string mod, float p, int y) {
+        model = mod;
+        price = p;
+        year = y;
+        cout << "Parameterized constructor called. Model: " << model << ", Price: " << price << ", Year: " << year << endl;
+    }
+
+    // 3. Copy constructor
+    Car(const Car &obj) {
+        model = obj.model;
+        price = obj.price;
+        year = obj.year;
+        cout << "Copy constructor called. Model: " << model << ", Price: " << price << ", Year: " << year << endl;
+    }
+
+    // 4. Constructor with default argument
+    Car(string mod, float p = 50000.0, int y = 2023) {
+        model = mod;
+        price = p;
+        year = y;
+        cout << "Constructor with default argument called. Model: " << model << ", Price: " << price << ", Year: " << year << endl;
+    }
+
+    // 5. Destructor
+    ~Car() {
+        cout << "Destructor called for car: " << model << endl;
+    }
+
+    // Display function to print car details
+    void display() {
+        cout << "Car Model: " << model << ", Price: " << price << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    // Using default constructor
+    Car car1;
+    car1.display();
+
+    // Using parameterized constructor
+    Car car2("Tesla", 75000.0, 2022);
+    car2.display();
+
+    // Using copy constructor
+    Car car3 = car2;
+    car3.display();
+
+    // Using constructor with default argument
+    Car car4("BMW");
+    car4.display();
+
+    // Program ends here, destructors will be called automatically
+    return 0;
+}
