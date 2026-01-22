@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+int main()   //main function
 {
     int feet1, feet2, inches1, inches2;
     cout << "Enter the first distance in feet: ";
