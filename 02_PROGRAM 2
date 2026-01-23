@@ -5,7 +5,7 @@ using namespace std;
 
 struct Student
 {
-    string ;
+    string name ;
     string rollNumber;
 };
 
