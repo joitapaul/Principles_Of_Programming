@@ -19,7 +19,7 @@ int main()
     int n = sizeof(stations) / sizeof(stations[0]);
 
     cout << "Enter the station number: ";
-    cin >> ;
+    cin >>  destination ;
 
     bool found = false;
     string station;
