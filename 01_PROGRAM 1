@@ -7,7 +7,7 @@ int main()
 {
     cout << "The available stations nearby are:" << endl
          << "1. Sealdah" << endl
-         << "2. Dum Dum" << endl
+         << "2. " << endl
          << "3. Belgharia" << endl
          << "4. Agarpara" << endl
          << "5. Sodpur" << endl
