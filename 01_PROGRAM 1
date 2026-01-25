@@ -1,7 +1,7 @@
 
 #include <bits/stdc++.h>
 
-using std;
+using namespace std;
 
 int main()
 {
